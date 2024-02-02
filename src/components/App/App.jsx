@@ -6,6 +6,9 @@ import './App.css';
 import { deletePizza } from '../../pizzaApi/pizza.api';
 
 import PizzaList from '../PizzaList/PizzaList';
+import Checkout from '../Checkout/Checkout';
+
+
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
@@ -43,10 +46,10 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Prime Pizza</h1>
       </header>
-
       <img src="images/pizza_photo.png" />
       <p>Pizza is great.</p>
       <PizzaList pizzaList={pizzaList} refreshPizzaCallBack={refreshPizza}/>
+      <Checkout />
     </div>
   );
 }
