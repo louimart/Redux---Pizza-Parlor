@@ -4,6 +4,9 @@ import axios from 'axios';
 import { fetchPizza } from '../PizzaAPI/Pizza.api';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
+import Checkout from '../Checkout/Checkout';
+
+
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
@@ -30,10 +33,11 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Prime Pizza</h1>
       </header>
-
       <img src="images/pizza_photo.png" />
       <p>Pizza is great.</p>
       <PizzaList />
+      <Checkout />
+       
     </div>
   );
 }
