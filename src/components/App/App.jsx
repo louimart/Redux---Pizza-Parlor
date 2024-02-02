@@ -3,13 +3,15 @@ import React from 'react';
 import axios from 'axios';
 import { fetchPizza } from '../PizzaAPI/Pizza.api';
 import './App.css';
+import { deletePizza } from '../../pizzaApi/pizza.api';
+
 import PizzaList from '../PizzaList/PizzaList';
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
 
   const refreshPizza = () => {
-    const taskPromise = fetchPizza();
+  const taskPromise = fetchPizza();
     taskPromise
       .then((response) => {
         console.log('SERVER DATA:', response);
@@ -24,6 +26,16 @@ function App() {
   useEffect(() => {
     refreshPizza();
   }, []);
+
+  const handleClickDelete = (id) => {
+    console.log('DELETE PIZZA', id);
+    deletePizza(id)
+      .then((response) => {
+        refreshPizza();
+      })
+      .catch((err) => {
+        console.log('ERROR DELETING PIZZA', err);
+      });
 
   return (
     <div className="App">
