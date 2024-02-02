@@ -1,23 +1,27 @@
 import React from 'react';
 import PizzaItem from '../PizzaItem/PizzaItem';
+// import refreshPizzaCallBack from '../App/App.jsx'
 
-function PizzaList({}) {
+function PizzaList({pizzaList, refreshPizzaCallBack}) {
   return (
     <div className="pizzaList">
-      {/* {pizzaList.map((imageData, imageIndex) => {
-        console.log(imageData.url);
+      {pizzaList.map((pizzaData, pizzaIndex) => {
+        console.log(pizzaData.url);
         return (
-          <div key={imageIndex}> */}
-          <div>
-            <PizzaItem
-              // refreshGalleryCallBack={refreshGalleryCallBack}
-              // key={imageData.id}
-              // imageData={imageData}
-              // id={imageIndex}
-            />
+          <div key={pizzaIndex}>
+            <div>
+              <PizzaItem
+                refreshPizzaCallBack={refreshPizzaCallBack}
+                key={pizzaData.id}
+                pizzaData={pizzaData}
+                id={pizzaIndex}
+              />
+            </div>
           </div>
+        )}
+      )}
     </div>
-  );
-}
+  )};
+
 
 export default PizzaList;
