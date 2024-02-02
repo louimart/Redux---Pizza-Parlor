@@ -3,6 +3,8 @@ import React from 'react';
 import axios from 'axios';
 import { fetchPizza } from '../PizzaAPI/Pizza.api';
 import './App.css';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
@@ -29,9 +31,9 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Prime Pizza</h1>
       </header>
-
       <img src="images/pizza_photo.png" />
       <p>Pizza is great.</p>
+      <CustomerInfo />
     </div>
   );
 }
