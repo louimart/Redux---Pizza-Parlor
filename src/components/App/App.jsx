@@ -33,7 +33,7 @@ function App() {
 
       <img src="images/pizza_photo.png" />
       <p>Pizza is great.</p>
-      <PizzaList />
+      <PizzaList pizzaList={pizzaList} refreshPizzaCallBack={refreshPizza}/>
     </div>
   );
 }
