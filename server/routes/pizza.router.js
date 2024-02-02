@@ -16,10 +16,10 @@ router.get('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  const pizzaID = req.params.id;
+  const pizzaId = req.params.id;
   const queryText = `DELETE FROM "pizza" WHERE "id" = $1;`;
   pool
-    .query(queryText, [pizzaID])
+    .query(queryText, [pizzaId])
     .then((response) => {
       res.sendStatus(200);
     })
