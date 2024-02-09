@@ -9,14 +9,12 @@ function PizzaList({ pizzaList, refreshPizzaCallBack }) {
         // console.log(pizzaData.url);
         return (
           <div key={pizzaIndex}>
-            <div>
-              <PizzaItem
-                refreshPizzaCallBack={refreshPizzaCallBack}
-                key={pizzaData.id}
-                pizzaData={pizzaData}
-                id={pizzaIndex}
-              />
-            </div>
+            <PizzaItem
+              refreshPizzaCallBack={refreshPizzaCallBack}
+              key={pizzaData.id}
+              pizzaData={pizzaData}
+              id={pizzaIndex}
+            />
           </div>
         );
       })}

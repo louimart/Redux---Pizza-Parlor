@@ -7,7 +7,7 @@ function PizzaItem({ pizzaData, refreshPizzaCallBack }) {
       {/* <img src={pizzaData.image_path}/> */}
       <h3>{pizzaData.name}</h3>
       <p>{pizzaData.description}</p>
-      <h3>{pizzaData.price}</h3>
+      <h3 className='pizzaPrice'>{pizzaData.price}</h3>
       <button>Add</button>
     </div>
   );
