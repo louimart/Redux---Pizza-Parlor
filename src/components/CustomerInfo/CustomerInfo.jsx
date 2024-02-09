@@ -7,14 +7,16 @@ function CustomerInfo() {
   const [streetValue, setStreetValue] = useState('');
   const [cityValue, setCityValue] = useState('');
   const [zipValue, setZipValue] = useState('');
+  const [radioValue, setRadioValue] = useState('');
 
   const handleSubmitCustomerInfo = (event) => {
     event.preventDefault();
     console.log('Values for SUBMIT:', {
-      Name: nameValue,
+      name: nameValue,
       street: streetValue,
       city: cityValue,
       zip: zipValue,
+      radio: radioValue,
     });
   };
 
@@ -47,20 +49,33 @@ function CustomerInfo() {
           onChange={(event) => setZipValue(event.target.value)}
         />
         <br />
-        <input type="radio" id="pickup" name="pickup" value="pickup" checked />
-        <label for="pickup">Pickup</label>
-        <br />
+        <div>
+          <input
+            label="pickup"
+            type="radio"
+            id="pickup"
+            value="pickup"
+            checked={radioValue === 'pickup'}
+            onChange={(event) => {
+              setRadioValue(event.target.value);
+            }}
+          />
+          <label for="pickup">Pickup</label>
+          <br />
 
-        <input
-          type="radio"
-          id="delivery"
-          name="delivery"
-          value="delivery"
-          unchecked
-        />
-
-        <label for="delivery">Delivery</label>
-        <br />
+          <input
+            label="delivery"
+            type="radio"
+            id="delivery"
+            value="delivery"
+            checked={radioValue === 'delivery'}
+            onChange={(event) => {
+              setRadioValue(event.target.value);
+            }}
+          />
+          <label for="pickup">Delivery</label>
+          <br />
+        </div>
         <button type="submit">Next</button>
       </form>
     </div>
