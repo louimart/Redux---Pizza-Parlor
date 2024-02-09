@@ -1,21 +1,25 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 // import { postOrder } from '../orderApi/order.api';
 
 function CustomerInfo() {
-  const [nameValue, setNameValue] = useState('');
-  const [streetValue, setStreetValue] = useState('');
-  const [cityValue, setCityValue] = useState('');
-  const [zipValue, setZipValue] = useState('');
+  const history = useHistory();
+
+  const [nameValue, setNameValue] = useState("");
+  const [streetValue, setStreetValue] = useState("");
+  const [cityValue, setCityValue] = useState("");
+  const [zipValue, setZipValue] = useState("");
 
   const handleSubmitCustomerInfo = (event) => {
     event.preventDefault();
-    console.log('Values for SUBMIT:', {
+    console.log("Values for SUBMIT:", {
       Name: nameValue,
       street: streetValue,
       city: cityValue,
       zip: zipValue,
     });
+    history.push("/checkout")
   };
 
   return (
@@ -32,7 +36,7 @@ function CustomerInfo() {
             placeholder="Name"
             onChange={(event) => setNameValue(event.target.value)}
           />
-        </label>{' '}
+        </label>{" "}
         <br />
         <label>
           <input
