@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PizzaItem({ pizzaData, refreshPizzaCallBack }) {
-  console.log('Here is a PizzaItem');
+  // console.log('Here is a PizzaItem');
   return (
     <div className="pizzaItem">
       {/* <img src={pizzaData.image_path}/> */}

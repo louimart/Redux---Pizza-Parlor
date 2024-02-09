@@ -6,7 +6,7 @@ function PizzaList({ pizzaList, refreshPizzaCallBack }) {
   return (
     <div className="pizzaList">
       {pizzaList.map((pizzaData, pizzaIndex) => {
-        console.log(pizzaData.url);
+        // console.log(pizzaData.url);
         return (
           <div key={pizzaIndex}>
             <PizzaItem
