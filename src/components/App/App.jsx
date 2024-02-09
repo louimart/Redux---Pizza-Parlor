@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { fetchPizza } from "../../pizzaApi/pizza.api";
+import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
@@ -10,9 +11,11 @@ import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
 import Orders from "../Orders/Orders";
 import Nav from "../Nav/Nav";
+import { useDispatch } from "react-redux";
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
+  const dispatch = useDispatch();
 
   const refreshPizza = () => {
     const taskPromise = fetchPizza();
@@ -29,6 +32,22 @@ function App() {
 
   useEffect(() => {
     refreshPizza();
+  }, []);
+
+  const refreshOrders = () => {
+    axios
+      .get("/api/order")
+      .then((response) => {
+        // send data to data to redux
+        dispatch({ type: "SET_ORDER_LIST", payload: response.data });
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+      });
+  };
+
+  useEffect(() => {
+    refreshOrders();
   }, []);
 
   const handleClickDelete = (id) => {
@@ -50,7 +69,7 @@ function App() {
           <Nav />
         </header>
         <img src="images/pizza_photo.png" />
-        
+
         <p>Pizza is great.</p>
         <Route exact path="/">
           <PizzaList
@@ -65,7 +84,7 @@ function App() {
           <Checkout />
         </Route>
         <Route exact path="/orders">
-          <Orders />
+          <Orders refreshOrders = {refreshOrders}/>
         </Route>
       </Router>
     </div>
