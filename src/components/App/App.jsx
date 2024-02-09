@@ -10,6 +10,8 @@ import { deletePizza } from '../../pizzaApi/pizza.api';
 import PizzaList from '../PizzaList/PizzaList';
 import Checkout from '../Checkout/Checkout';
 
+import { Grid } from '@mui/material';
+
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
 
