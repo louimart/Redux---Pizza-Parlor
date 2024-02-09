@@ -27,33 +27,39 @@ function CustomerInfo() {
       <h2>Step 2: Customer Information</h2>
 
       <form onSubmit={handleSubmitCustomerInfo}>
-        <label>
-          <input
-            placeholder="Name"
-            onChange={(event) => setNameValue(event.target.value)}
-          />
-        </label>{' '}
+        <input
+          placeholder="Name"
+          onChange={(event) => setNameValue(event.target.value)}
+        />
         <br />
-        <label>
-          <input
-            placeholder="Street Address"
-            onChange={(event) => setStreetValue(event.target.value)}
-          />
-        </label>
+        <input
+          placeholder="Street Address"
+          onChange={(event) => setStreetValue(event.target.value)}
+        />
         <br />
-        <label>
-          <input
-            placeholder="City"
-            onChange={(event) => setCityValue(event.target.value)}
-          />
-        </label>
+        <input
+          placeholder="City"
+          onChange={(event) => setCityValue(event.target.value)}
+        />
         <br />
-        <label>
-          <input
-            placeholder="Zip"
-            onChange={(event) => setZipValue(event.target.value)}
-          />
-        </label>
+        <input
+          placeholder="Zip"
+          onChange={(event) => setZipValue(event.target.value)}
+        />
+        <br />
+        <input type="radio" id="pickup" name="pickup" value="pickup" checked />
+        <label for="pickup">Pickup</label>
+        <br />
+
+        <input
+          type="radio"
+          id="delivery"
+          name="delivery"
+          value="delivery"
+          unchecked
+        />
+
+        <label for="delivery">Delivery</label>
         <br />
         <button type="submit">Next</button>
       </form>
