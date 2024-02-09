@@ -1,7 +1,13 @@
-import React from "react";
-import './Checkout.css'
+import React, { useState } from 'react';
+import './Checkout.css';
 
 function Checkout() {
+  var [list, setList] = useState(list);
+
+  function handleRemove(id) {
+    const newList = list.filter((li) => li.id !== id);
+    setList(newList);
+  }
   return (
     <div>
       Checkout
@@ -18,11 +24,21 @@ function Checkout() {
         <tr>
           <th>Name</th>
           <th>Cost</th>
+          <th></th>
         </tr>
         <tbody>
           <tr>
             <td>Pizza here</td>
             <td>$$$$</td>
+            <td>
+              <button
+                className="remove"
+                type="button"
+                onclick={() => handleRemove(pizza.id)}
+              >
+                REMOVE
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
