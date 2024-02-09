@@ -1,8 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 // import { postOrder } from '../orderApi/order.api';
 
 function CustomerInfo() {
+  const history = useHistory();
   const [nameValue, setNameValue] = useState('');
   const [streetValue, setStreetValue] = useState('');
   const [cityValue, setCityValue] = useState('');
@@ -18,6 +20,7 @@ function CustomerInfo() {
       zip: zipValue,
       radio: radioValue,
     });
+    history.push("/checkout")
   };
 
   return (
