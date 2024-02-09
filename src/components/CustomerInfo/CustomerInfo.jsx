@@ -25,10 +25,6 @@ function CustomerInfo() {
 
   return (
     <div>
-      <header>
-        <h1>Prime Pizza</h1>
-      </header>
-
       <h2>Step 2: Customer Information</h2>
 
       <form onSubmit={handleSubmitCustomerInfo}>

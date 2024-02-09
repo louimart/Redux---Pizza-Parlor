@@ -13,6 +13,8 @@
   font-size: 2em;
 }
 
+
+
 nav > ul {
   list-style-type: none;
   margin: 10px auto;
@@ -32,6 +34,9 @@ nav > ul li a {
   
 }
 
-img {
-  max-width: 75%;
+
+header {
+  background-image: url('../../../public/images/pizza_photo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

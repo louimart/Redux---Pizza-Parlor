@@ -31,7 +31,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function Orders() {
   const orders = useSelector((state) => state.orders);
-
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -44,7 +43,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders.map((order, id) => (
+          {orders.map((order) => (
             <StyledTableRow key={order.id}>
               <StyledTableCell component="th" scope="row">
                 {order.customer_name}

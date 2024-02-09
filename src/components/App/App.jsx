@@ -50,6 +50,22 @@ function App() {
     refreshOrders();
   }, []);
 
+  const refreshPizzas = () => {
+    axios
+      .get("/api/pizza")
+      .then((response) => {
+        // send data to data to redux
+        dispatch({ type: "SET_PIZZA_LIST", payload: response.data });
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+      });
+  };
+
+  useEffect(() => {
+    refreshPizzas();
+  }, []);
+
   const handleClickDelete = (id) => {
     console.log("DELETE PIZZA", id);
     deletePizza(id)
@@ -66,11 +82,8 @@ function App() {
       <Router>
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
-          <Nav />
         </header>
-        <img src="images/pizza_photo.png" />
-
-        <p>Pizza is great.</p>
+        <Nav />
         <Route exact path="/">
           <PizzaList
             pizzaList={pizzaList}
