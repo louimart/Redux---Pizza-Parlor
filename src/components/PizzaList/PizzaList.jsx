@@ -22,6 +22,13 @@ function PizzaList() {
         NEXT
       </Button>
     </>
+
+            />
+          </div>
+        );
+      })}
+    </div>
+
   );
 }
 

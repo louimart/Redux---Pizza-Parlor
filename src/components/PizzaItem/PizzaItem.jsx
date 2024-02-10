@@ -34,6 +34,7 @@ function PizzaItem({ pizzas, id }) {
         </Button>
       </Box>
     </Grid>
+
   );
 }
 
