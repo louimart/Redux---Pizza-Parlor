@@ -6,6 +6,7 @@ import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 import { deletePizza } from "../../pizzaApi/pizza.api";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
@@ -82,8 +83,12 @@ function App() {
       <Router>
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
+          <h1 className="cartIcon" >
+          <ShoppingCartIcon />
+         TOTAL:
+          </h1>
+          <Nav />
         </header>
-        <Nav />
         <Route exact path="/">
           <PizzaList
             pizzaList={pizzaList}

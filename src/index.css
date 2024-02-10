@@ -10,3 +10,16 @@ body {
   padding: 5px;
   font-size: 20px;
 }
+
+img {
+   width: 80%;
+}
+
+.cardButton {
+  top: 10px;
+}
+
+.nextButton {
+  left: 45%;
+  bottom: 10px;
+}

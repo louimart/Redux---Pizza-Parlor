@@ -44,7 +44,7 @@ export default function Orders() {
         </TableHead>
         <TableBody>
           {orders.map((order) => (
-            <StyledTableRow key={order.id}>
+            <StyledTableRow >
               <StyledTableCell component="th" scope="row">
                 {order.customer_name}
               </StyledTableCell>
