@@ -11,15 +11,17 @@ function PizzaList() {
   const history = useHistory();
 
   return (
+    <>
       <Grid container spacing={2}>
         {pizzas.map((pizzas, id) => {
           return <PizzaItem key={id} pizzas={pizzas} />;
         })}
       <br />
-      <Button onClick={() => {history.push ('/customerinfo')}} className="nextButton" variant="contained" size="large">
-        NEXT
-      </Button>
       </Grid>
+      <Button onClick={() => {history.push ('/customerinfo')}} className="nextButton" variant="contained" size="large">
+      NEXT
+    </Button>
+    </>
   );
 }
 
