@@ -3,8 +3,8 @@
 }
 
 .App-header {
-  background-color: #e23030;
-  min-height: 150px;
+  background-color: #fb1010;
+  min-height: 120px;
   padding: 20px;
   color: white;
 }
@@ -56,11 +56,9 @@ nav > ul li a {
   padding: 10px;
 }
 
-
-
-header {
-  background-image: url('../../../public/images/pizza_photo.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+.cartIcon {
+  left: 400px;
+  top: 100px;
+  position: relative;
+} 
 

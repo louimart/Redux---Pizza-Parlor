@@ -1,24 +1,34 @@
-import React from 'react';
-import PizzaItem from '../PizzaItem/PizzaItem';
-// import refreshPizzaCallBack from '../App/App.jsx'
+import React from "react";
+import { useSelector } from "react-redux";
+import PizzaItem from "../PizzaItem/PizzaItem";
+import { Grid } from "@mui/material";
+import Button from "@mui/material/Button";
+import { useHistory } from "react-router-dom";
 
-function PizzaList({ pizzaList, refreshPizzaCallBack }) {
+function PizzaList() {
+  const pizzas = useSelector((state) => state.pizzas);
+
+  const history = useHistory();
+
   return (
-    <div className="pizzaList">
-      {pizzaList.map((pizzaData, pizzaIndex) => {
-        // console.log(pizzaData.url);
-        return (
-          <div key={pizzaIndex}>
-            <PizzaItem
-              refreshPizzaCallBack={refreshPizzaCallBack}
-              key={pizzaData.id}
-              pizzaData={pizzaData}
-              id={pizzaIndex}
+    <>
+      <Grid container spacing={2}>
+        {pizzas.map((pizzas, id) => {
+          return <PizzaItem key={id} pizzas={pizzas} />;
+        })}
+      </Grid>
+      <br />
+      <Button onClick={() => {history.push ('/customerinfo')}} className="nextButton" variant="contained" size="large">
+        NEXT
+      </Button>
+    </>
+
             />
           </div>
         );
       })}
     </div>
+
   );
 }
 

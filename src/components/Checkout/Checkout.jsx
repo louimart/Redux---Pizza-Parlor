@@ -30,20 +30,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function Checkout() {
-  const pizzas = useSelector((state) => state.pizzas);
   const orders = useSelector((state) => state.orders);
 
   return (
     <>
     <div className="customerInfo">
       <h2>Step 3: Checkout</h2>
-      {orders.map((item) => (
-        <p>
+      {orders.map((item) => ( 
+        <div key={item.id}>
           {item.customer_name} <br />
           {item.street_address} <br />
           {item.city} <br />
           {item.type}
-        </p>
+        </div>
       ))}
       </div>
       <TableContainer component={Paper}>
@@ -54,13 +53,13 @@ function Checkout() {
               <StyledTableCell>Cost</StyledTableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {pizzas.map((item) => (
-              <StyledTableRow key={item.id}>
+          <TableBody >
+            {orders.map((items) => (
+              <StyledTableRow key={items.id}>
                 <StyledTableCell component="th" scope="row">
-                  {item.name}
+                  {items.customer_name}
                 </StyledTableCell>
-                <StyledTableCell>{item.price}</StyledTableCell>
+                <StyledTableCell>{items.total}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

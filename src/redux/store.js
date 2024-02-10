@@ -3,7 +3,7 @@ import logger from 'redux-logger';
 
 const orders = (state = [], action) => {
   if (action.type === 'SET_ORDER_LIST') {
-    return action.payload;
+    return action.payload
   }
 
   return state;
@@ -16,6 +16,7 @@ const pizzas = (state = [], action) => {
 
   return state;
 };
+
 
 const store = createStore(
   combineReducers({
