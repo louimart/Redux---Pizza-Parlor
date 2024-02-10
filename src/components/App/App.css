@@ -13,6 +13,7 @@
   font-size: 2em;
 }
 
+
 .pizzaList {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -36,6 +37,7 @@
   text-align: right;
 }
 
+
 nav > ul {
   list-style-type: none;
   margin: 10px auto;
@@ -54,6 +56,11 @@ nav > ul li a {
   padding: 10px;
 }
 
-img {
-  max-width: 75%;
+
+
+header {
+  background-image: url('../../../public/images/pizza_photo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { fetchPizza } from "../../pizzaApi/pizza.api";
+import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
@@ -10,11 +11,13 @@ import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
 import Orders from "../Orders/Orders";
 import Nav from "../Nav/Nav";
+import { useDispatch } from "react-redux";
 
 import { Grid } from '@mui/material';
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
+  const dispatch = useDispatch();
 
   const refreshPizza = () => {
     const taskPromise = fetchPizza();
@@ -33,6 +36,38 @@ function App() {
     refreshPizza();
   }, []);
 
+  const refreshOrders = () => {
+    axios
+      .get("/api/order")
+      .then((response) => {
+        // send data to data to redux
+        dispatch({ type: "SET_ORDER_LIST", payload: response.data });
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+      });
+  };
+
+  useEffect(() => {
+    refreshOrders();
+  }, []);
+
+  const refreshPizzas = () => {
+    axios
+      .get("/api/pizza")
+      .then((response) => {
+        // send data to data to redux
+        dispatch({ type: "SET_PIZZA_LIST", payload: response.data });
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+      });
+  };
+
+  useEffect(() => {
+    refreshPizzas();
+  }, []);
+
   const handleClickDelete = (id) => {
     console.log("DELETE PIZZA", id);
     deletePizza(id)
@@ -49,11 +84,8 @@ function App() {
       <Router>
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
-          <Nav />
         </header>
-        <img src="images/pizza_photo.png" />
-        
-        <p>Pizza is great.</p>
+        <Nav />
         <Route exact path="/">
           <PizzaList
             pizzaList={pizzaList}
@@ -67,7 +99,7 @@ function App() {
           <Checkout />
         </Route>
         <Route exact path="/orders">
-          <Orders />
+          <Orders refreshOrders = {refreshOrders}/>
         </Route>
       </Router>
     </div>
