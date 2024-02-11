@@ -17,11 +17,24 @@ const pizzas = (state = [], action) => {
   return state;
 };
 
+const cart = (state = [], action) => {
+  // TODO: Save Products added to the cart
+  switch (action.type) {
+    case "SET_CART_ITEM":
+      return [...state, action.payload];
+    case "CLEAR_CART":
+      return (state = []);
+    default:
+      return state;
+  }
+};
+
 
 const store = createStore(
   combineReducers({
     orders,
     pizzas,
+    cart
   }),
   applyMiddleware(logger),
 );
