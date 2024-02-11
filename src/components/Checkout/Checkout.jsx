@@ -58,7 +58,7 @@ function Checkout() {
             {cart.map((items) => (
               <StyledTableRow key={items.id}>
                 <StyledTableCell component="th" scope="row">
-                  
+                  {items.name}
                 </StyledTableCell>
                 <StyledTableCell>{items.price}</StyledTableCell>
               </StyledTableRow>

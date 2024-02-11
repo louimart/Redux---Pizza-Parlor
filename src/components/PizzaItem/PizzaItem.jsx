@@ -14,7 +14,7 @@ function PizzaItem({ pizzas }) {
     // TODO: Dispatch here
     dispatch ({
       type: 'SET_CART_ITEM',
-      payload: pizzas,
+      payload: pizzas
     })
   };
 
