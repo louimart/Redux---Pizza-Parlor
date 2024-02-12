@@ -7,15 +7,17 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 function PizzaItem({ pizzas }) {
+  const[toggleButton, setToggleButton] = useState(true);
   const dispatch = useDispatch();
 
   const addPizzaToCart = () => {
     console.log(pizzas);
     // TODO: Dispatch here
-    dispatch ({
-      type: 'SET_CART_ITEM',
-      payload: pizzas
-    })
+    dispatch({
+      type: "SET_CART_ITEM",
+      payload: pizzas,
+    });
+    setToggleButton(!toggleButton)
   };
 
   return (
@@ -44,7 +46,7 @@ function PizzaItem({ pizzas }) {
               marginTop: "auto",
             }}
           >
-            ADD
+            {toggleButton ? "ADD" : "REMOVE"}
           </Button>
         </Stack>
       </Box>

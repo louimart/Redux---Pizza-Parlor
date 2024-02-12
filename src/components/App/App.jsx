@@ -6,18 +6,19 @@ import "./App.css";
 import { HashRouter as Router, Route } from "react-router-dom";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 import { deletePizza } from "../../pizzaApi/pizza.api";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
 import Orders from "../Orders/Orders";
 import Nav from "../Nav/Nav";
 import { useDispatch } from "react-redux";
-
-import { Grid } from '@mui/material';
+import { useSelector } from "react-redux";
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
+  const cartTotal = useSelector((state) => state.cart);
+  
   const dispatch = useDispatch();
 
   const refreshPizza = () => {
@@ -85,9 +86,17 @@ function App() {
       <Router>
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
-          <h1 className="cartIcon" >
-          <ShoppingCartIcon />
-         TOTAL:
+          <h1 className="cartIcon">
+            <ShoppingCartIcon />
+            <ul>
+              TOTAL: 
+              {cartTotal.map((item, index) => (
+                <span>
+              
+                </span>
+              ))}
+            
+            </ul>
           </h1>
           <Nav />
         </header>
@@ -104,7 +113,7 @@ function App() {
           <Checkout />
         </Route>
         <Route exact path="/orders">
-          <Orders refreshOrders = {refreshOrders}/>
+          <Orders refreshOrders={refreshOrders} />
         </Route>
       </Router>
     </div>
