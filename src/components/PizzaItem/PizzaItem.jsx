@@ -17,6 +17,10 @@ function PizzaItem({ pizzas }) {
       type: "SET_CART_ITEM",
       payload: pizzas,
     });
+    dispatch({
+      type: "SET_REMOVE_ITEM",
+      payload: pizzas
+    });
     setToggleButton(!toggleButton)
   };
 
