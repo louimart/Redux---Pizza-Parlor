@@ -30,20 +30,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function Checkout() {
-  const orders = useSelector((state) => state.orders);
+  const cart = useSelector((state) => state.cart);
 
   return (
     <>
     <div className="customerInfo">
       <h2>Step 3: Checkout</h2>
-      {orders.map((item) => ( 
+      {/* TO DO this will be a redux store for the customer info instead of past orders */}
+      {/* {orders.map((item) => ( 
         <div key={item.id}>
           {item.customer_name} <br />
           {item.street_address} <br />
           {item.city} <br />
           {item.type}
         </div>
-      ))}
+      ))} */}
       </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -54,12 +55,12 @@ function Checkout() {
             </TableRow>
           </TableHead>
           <TableBody >
-            {orders.map((items) => (
+            {cart.map((items) => (
               <StyledTableRow key={items.id}>
                 <StyledTableCell component="th" scope="row">
-                  {items.customer_name}
+                  {items.name}
                 </StyledTableCell>
-                <StyledTableCell>{items.total}</StyledTableCell>
+                <StyledTableCell>{items.price}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

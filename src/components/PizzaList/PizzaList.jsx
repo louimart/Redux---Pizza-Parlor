@@ -12,7 +12,8 @@ function PizzaList() {
 
   return (
     <>
-      <Grid container spacing={2}>
+    <h2>Step 1: Select Your Pizzas</h2>
+      <Grid container spacing={2} alignItems="stretch">
         {pizzas.map((pizzas, id) => {
           return <PizzaItem key={id} pizzas={pizzas} />;
         })}
