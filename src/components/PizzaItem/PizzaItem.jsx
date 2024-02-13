@@ -7,21 +7,29 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 function PizzaItem({ pizzas }) {
-  const[toggleButton, setToggleButton] = useState(true);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const isInCart = () => {
+    if (cart.filter((item) => item.id === pizzas.id).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   const addPizzaToCart = () => {
-    console.log(pizzas);
     // TODO: Dispatch here
-    dispatch({
-      type: "SET_CART_ITEM",
-      payload: pizzas,
-    });
-    dispatch({
-      type: "SET_REMOVE_ITEM",
-      payload: pizzas
-    });
-    setToggleButton(!toggleButton)
+    if (isInCart() === false) {
+      dispatch({
+        type: "SET_CART_ITEM",
+        payload: pizzas,
+      });
+    } else {
+      dispatch({
+        type: "SET_REMOVE_ITEM",
+        payload: { id: pizzas.id },
+      });
+    }
   };
 
   return (
@@ -50,7 +58,7 @@ function PizzaItem({ pizzas }) {
               marginTop: "auto",
             }}
           >
-            {toggleButton ? "ADD" : "REMOVE"}
+            {isInCart() ? "REMOVE" : "ADD"}
           </Button>
         </Stack>
       </Box>
