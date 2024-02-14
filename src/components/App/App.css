@@ -5,12 +5,14 @@
 .App-header {
   background-color: #fb1010;
   min-height: 120px;
-  padding: 20px;
+  padding:5px 0px  0px 0px;
+  margin: 10px 0px  0px 0px;;
   color: white;
 }
 
 .App-title {
-  font-size: 2em;
+  font-size: 50px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
@@ -37,12 +39,15 @@
   text-align: right;
 }
 
+nav {
+  background-color: lightgray;
+}
 
 nav > ul {
   list-style-type: none;
   margin: 10px auto;
   width: 700px;
-  padding: 0;
+  
 }
 
 nav > ul li {
@@ -57,7 +62,15 @@ nav > ul li a {
 }
 
 .cartIcon {
-  left: 400px;
   top: 100px;
+  text-align: right;
+  margin: 5px;
+  font-size: 15px;
 } 
+
+.total {
+  text-align: right;
+  size: 20px;
+  padding: 10px;
+}
 
