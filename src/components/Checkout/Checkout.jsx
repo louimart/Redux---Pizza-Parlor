@@ -29,7 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function Checkout() {
+function Checkout({myCart}) {
   const cart = useSelector((state) => state.cart);
 
   return (
@@ -66,7 +66,7 @@ function Checkout() {
           </TableBody>
         </Table>
       </TableContainer>
-      <p>Total:</p>
+      <p>Total: ${myCart}</p>
       <button>CHECKOUT</button>
     </>
   );

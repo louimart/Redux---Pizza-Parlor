@@ -7,6 +7,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 import { deletePizza } from "../../pizzaApi/pizza.api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
@@ -17,8 +18,8 @@ import { useSelector } from "react-redux";
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
-  const cartTotal = useSelector((state) => state.cart);
-  
+  const cart = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
 
   const refreshPizza = () => {
@@ -81,24 +82,31 @@ function App() {
       });
   };
 
+  function calculateCartTotal(cart) {
+    let total = 0;
+    for (let item of cart) {
+      let num = Number(item.price);
+      total += num;
+    }
+    return total;
+  }
+
+  let myCart = Number.parseFloat(calculateCartTotal(cart).toFixed(2));
+
+  console.log(myCart);
+
   return (
     <div className="App">
       <Router>
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
-          <h1 className="cartIcon">
+          <h4 className="cartIcon">
             <ShoppingCartIcon />
-            <ul>
-              TOTAL: 
-              {cartTotal.map((item, index) => (
-                <span>
-              
-                </span>
-              ))}
-            
-            </ul>
-          </h1>
-          <Nav />
+            <span className="total">
+              TOTAL: $ {myCart}
+              <Nav />
+            </span>
+          </h4>
         </header>
         <Route exact path="/">
           <PizzaList
@@ -110,11 +118,14 @@ function App() {
           <CustomerInfo />
         </Route>
         <Route exact path="/checkout">
-          <Checkout />
+          <Checkout myCart={myCart} />
         </Route>
-        <Route exact path="/orders">
+        <Route exact path="/admin">
           <Orders refreshOrders={refreshOrders} />
         </Route>
+      <footer className="footer">
+        <p><Link to="/admin">Admin</Link></p>
+      </footer>
       </Router>
     </div>
   );

@@ -14,7 +14,7 @@ function Nav() {
           <Link to="/checkout">Checkout</Link>
         </li>
         <li>
-          <Link to="/orders">Orders</Link>
+          <Link to="/admin"></Link>
         </li>
       </ul>
     </nav>

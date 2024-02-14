@@ -22,11 +22,11 @@ const cart = (state = [], action) => {
   switch (action.type) {
     case "SET_CART_ITEM":
       return [...state, action.payload];
-    case "REMOVE_CART_ITEM":
-      return {
-           ...state,
-           items: state.items.filter((item, index) => index !== action.payload)
-         }
+      case 'SET_REMOVE_ITEM': {
+        return state.filter((cartItem) => {
+          return cartItem.id !== action.payload.id;
+        });
+      }
     default:
       return state;
   }

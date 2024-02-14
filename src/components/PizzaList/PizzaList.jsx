@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useHistory } from "react-router-dom";
 
-function PizzaList() {
+function PizzaList( {myCart}) {
   const pizzas = useSelector((state) => state.pizzas);
 
   const history = useHistory();
@@ -15,7 +15,7 @@ function PizzaList() {
     <h2>Step 1: Select Your Pizzas</h2>
       <Grid container spacing={2} alignItems="stretch">
         {pizzas.map((pizzas, id) => {
-          return <PizzaItem key={id} pizzas={pizzas} />;
+          return <PizzaItem key={id} pizzas={pizzas}/>;
         })}
       <br />
       </Grid>
