@@ -21,7 +21,8 @@
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
   gap: 10px;
-  margin: 25px;
+  margin: 20px;
+  background-color: lightgray;
 }
 .pizzaItem {
   text-align: left;
@@ -31,7 +32,7 @@
   padding: 20px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: white;
+  background-color: lightgrey;
   filter: drop-shadow(5px 5px 2px lightgray);
 }
 
@@ -41,6 +42,8 @@
 
 nav {
   background-color: lightgray;
+  color: black;
+  
 }
 
 nav > ul {
@@ -59,6 +62,31 @@ nav > ul li {
 nav > ul li a {
   display: block;
   padding: 10px;
+  text-decoration: underline;
+}
+
+nav > ul li a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+nav > ul li a:visited {
+  color: purple;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+nav > ul li a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+nav > ul li a:active {
+  color: lightskyblue;
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 .cartIcon {
@@ -74,3 +102,8 @@ nav > ul li a {
   padding: 10px;
 }
 
+.footer {
+  background-color: lightgrey;
+  padding: 5px;
+  margin-top: auto;
+}

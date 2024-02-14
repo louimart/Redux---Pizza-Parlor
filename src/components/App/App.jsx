@@ -7,6 +7,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 import { deletePizza } from "../../pizzaApi/pizza.api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 import PizzaList from "../PizzaList/PizzaList";
 import Checkout from "../Checkout/Checkout";
@@ -119,9 +120,12 @@ function App() {
         <Route exact path="/checkout">
           <Checkout myCart={myCart} />
         </Route>
-        <Route exact path="/orders">
+        <Route exact path="/admin">
           <Orders refreshOrders={refreshOrders} />
         </Route>
+      <footer className="footer">
+        <p><Link to="/admin">Admin</Link></p>
+      </footer>
       </Router>
     </div>
   );
