@@ -31,27 +31,36 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+////TESTING CUSTOMER INFO
+
 function Checkout({ myCart }) {
   const cart = useSelector((state) => state.cart);
-  const customer_name = useSelector((store) => store.orders.name);
-  console.log('customer_name', customer_name);
+  const customer_name = useSelector((store) => store.orders.customer_name);
+  const street_address = useSelector((store) => store.orders.street_address);
+  const city = useSelector((store) => store.orders.city);
+  const zip = useSelector((store) => store.orders.zip);
+  const type = useSelector((store) => store.orders.type);
+  // console.log('customer_name', customer_name);
+  const customer = useSelector((state) => state.customer);
+  console.log('customer info to be sent via axios', customer);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //   axios
-    //     .post('/api/order', {
-    //       feeling,
-    //       understanding,
-    //       support,
-    //       comments,
-    //     })
-    //     .then((response) => {
-    //       alert('feedback submitted!');
-    //     })
-    //     .catch((error) => {
-    //       console.log('ERROR:', error);
-    //     });
+    // axios
+    //   .post('/api/order', {
+    //     customer_name,
+    //     street_address,
+    //     city,
+    //     zip,
+    //     type,
+    //   })
+    //   .then((response) => {
+    //     alert('feedback submitted!');
+    //   })
+    //   .catch((error) => {
+    //     console.log('ERROR:', error);
+    //   });
   };
 
   return (

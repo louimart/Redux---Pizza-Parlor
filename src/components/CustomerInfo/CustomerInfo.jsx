@@ -16,7 +16,7 @@ function CustomerInfo() {
 
   const dispatchCustomerInfo = () => {
     dispatch({
-      type: 'SET_ORDER_LIST',
+      type: 'SET_CUSTOMER_INFO',
       payload: {
         customer_name: nameValue,
         street_address: streetValue,
