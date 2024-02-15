@@ -48,7 +48,7 @@ function Checkout({ myCart }) {
     event.preventDefault();
 
     // axios
-    //   .post('/api/order', {
+    //   .post('/', {
     //     customer_name,
     //     street_address,
     //     city,
