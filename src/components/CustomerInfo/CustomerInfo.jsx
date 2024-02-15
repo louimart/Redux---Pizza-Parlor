@@ -1,27 +1,43 @@
-import React from "react";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Button } from "@mui/material";
+import React from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
 // import { postOrder } from '../orderApi/order.api';
 
 function CustomerInfo() {
   const history = useHistory();
-  const [nameValue, setNameValue] = useState("");
-  const [streetValue, setStreetValue] = useState("");
-  const [cityValue, setCityValue] = useState("");
-  const [zipValue, setZipValue] = useState("");
-  const [radioValue, setRadioValue] = useState("");
+  const dispatch = useDispatch();
+  const [nameValue, setNameValue] = useState('');
+  const [streetValue, setStreetValue] = useState('');
+  const [cityValue, setCityValue] = useState('');
+  const [zipValue, setZipValue] = useState('');
+  const [radioValue, setRadioValue] = useState('');
+
+  const dispatchCustomerInfo = () => {
+    dispatch({
+      type: 'SET_ORDER_LIST',
+      payload: {
+        customer_name: nameValue,
+        street_address: streetValue,
+        city: cityValue,
+        zip: parseInt(zipValue),
+        type: radioValue,
+      },
+    });
+  };
 
   const handleSubmitCustomerInfo = (event) => {
     event.preventDefault();
-    console.log("Values for SUBMIT:", {
+    dispatchCustomerInfo();
+    console.log('Values for SUBMIT:', {
       name: nameValue,
       street: streetValue,
       city: cityValue,
       zip: zipValue,
       radio: radioValue,
     });
-    history.push("/checkout");
+    history.push('/checkout');
   };
 
   return (
@@ -55,7 +71,7 @@ function CustomerInfo() {
             type="radio"
             id="pickup"
             value="pickup"
-            checked={radioValue === "pickup"}
+            checked={radioValue === 'pickup'}
             onChange={(event) => {
               setRadioValue(event.target.value);
             }}
@@ -68,7 +84,7 @@ function CustomerInfo() {
             type="radio"
             id="delivery"
             value="delivery"
-            checked={radioValue === "delivery"}
+            checked={radioValue === 'delivery'}
             onChange={(event) => {
               setRadioValue(event.target.value);
             }}
