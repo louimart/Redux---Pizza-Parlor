@@ -19,9 +19,11 @@ function PizzaList( {myCart}) {
         })}
       <br />
       </Grid>
-      <Button onClick={() => {history.push ('/customerinfo')}} className="nextButton" variant="contained" size="large">
+      <div className="nextButton" >
+      <Button onClick={() => {history.push ('/customerinfo')}} variant="contained" size="large">
       NEXT
     </Button>
+    </div>
     </>
   );
 }

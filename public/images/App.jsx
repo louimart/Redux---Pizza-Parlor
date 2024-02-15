@@ -101,8 +101,9 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
           <h4 className="cartIcon">
+            <ShoppingCartIcon />
             <span className="total">
-            <ShoppingCartIcon />  TOTAL: $ {myCart} 
+              TOTAL: $ {myCart}
               <Nav />
             </span>
           </h4>

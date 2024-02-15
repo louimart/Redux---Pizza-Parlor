@@ -1,26 +1,27 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "@mui/material";
 // import { postOrder } from '../orderApi/order.api';
 
 function CustomerInfo() {
   const history = useHistory();
-  const [nameValue, setNameValue] = useState('');
-  const [streetValue, setStreetValue] = useState('');
-  const [cityValue, setCityValue] = useState('');
-  const [zipValue, setZipValue] = useState('');
-  const [radioValue, setRadioValue] = useState('');
+  const [nameValue, setNameValue] = useState("");
+  const [streetValue, setStreetValue] = useState("");
+  const [cityValue, setCityValue] = useState("");
+  const [zipValue, setZipValue] = useState("");
+  const [radioValue, setRadioValue] = useState("");
 
   const handleSubmitCustomerInfo = (event) => {
     event.preventDefault();
-    console.log('Values for SUBMIT:', {
+    console.log("Values for SUBMIT:", {
       name: nameValue,
       street: streetValue,
       city: cityValue,
       zip: zipValue,
       radio: radioValue,
     });
-    history.push("/checkout")
+    history.push("/checkout");
   };
 
   return (
@@ -54,7 +55,7 @@ function CustomerInfo() {
             type="radio"
             id="pickup"
             value="pickup"
-            checked={radioValue === 'pickup'}
+            checked={radioValue === "pickup"}
             onChange={(event) => {
               setRadioValue(event.target.value);
             }}
@@ -67,7 +68,7 @@ function CustomerInfo() {
             type="radio"
             id="delivery"
             value="delivery"
-            checked={radioValue === 'delivery'}
+            checked={radioValue === "delivery"}
             onChange={(event) => {
               setRadioValue(event.target.value);
             }}
@@ -75,7 +76,11 @@ function CustomerInfo() {
           <label for="pickup">Delivery</label>
           <br />
         </div>
-        <button type="submit">Next</button>
+        <div className="nextButton">
+          <Button variant="contained" size="large" type="submit">
+            NEXT
+          </Button>
+        </div>
       </form>
     </div>
   );

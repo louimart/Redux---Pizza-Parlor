@@ -1,17 +1,11 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 .customerInfo {
-  text-align: left;
+  
   margin: 10px;
   padding: 5px;
-  font-size: 20px;
 }
 
 img {
@@ -23,6 +17,19 @@ img {
 }
 
 .nextButton {
-  left: 45%;
-  bottom: 10px;
+  text-align: right;
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px
+
 }
+
+.footer {
+  background-color: lightgrey;
+  position: relative;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+}
+

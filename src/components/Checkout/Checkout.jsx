@@ -8,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,15 +30,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function Checkout({myCart}) {
+function Checkout({ myCart }) {
   const cart = useSelector((state) => state.cart);
 
   return (
     <>
-    <div className="customerInfo">
-      <h2>Step 3: Checkout</h2>
-      {/* TO DO this will be a redux store for the customer info instead of past orders */}
-      {/* {orders.map((item) => ( 
+      <div className="customerInfo">
+        <h2>Step 3: Checkout</h2>
+        {/* TO DO this will be a redux store for the customer info instead of past orders */}
+        {/* {orders.map((item) => ( 
         <div key={item.id}>
           {item.customer_name} <br />
           {item.street_address} <br />
@@ -54,7 +55,7 @@ function Checkout({myCart}) {
               <StyledTableCell>Cost</StyledTableCell>
             </TableRow>
           </TableHead>
-          <TableBody >
+          <TableBody>
             {cart.map((items) => (
               <StyledTableRow key={items.id}>
                 <StyledTableCell component="th" scope="row">
@@ -66,8 +67,12 @@ function Checkout({myCart}) {
           </TableBody>
         </Table>
       </TableContainer>
-      <p>Total: ${myCart}</p>
-      <button>CHECKOUT</button>
+      <p className="nextButton">
+        Total: ${myCart} <br />
+        <Button variant="contained" size="large">
+          CHECKOUT
+        </Button>
+      </p>
     </>
   );
 }

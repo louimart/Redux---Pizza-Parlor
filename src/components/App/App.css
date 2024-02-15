@@ -1,17 +1,15 @@
-.App {
-  text-align: center;
-}
-
 .App-header {
   background-color: #fb1010;
-  min-height: 120px;
-  padding:5px 0px  0px 0px;
-  margin: 10px 0px  0px 0px;;
+  min-height: 110px;
   color: white;
+  margin-top: 0px;
 }
 
 .App-title {
-  font-size: 50px;
+  padding-left: 50px;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 60px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -25,7 +23,7 @@
   background-color: lightgray;
 }
 .pizzaItem {
-  text-align: left;
+  
   width: 200px;
   height: auto;
   margin: 10px;
@@ -36,10 +34,6 @@
   filter: drop-shadow(5px 5px 2px lightgray);
 }
 
-.pizzaPrice {
-  text-align: right;
-}
-
 nav {
   background-color: lightgray;
   color: black;
@@ -47,16 +41,14 @@ nav {
 }
 
 nav > ul {
-  list-style-type: none;
-  margin: 10px auto;
-  width: 700px;
+  margin: 10px 0px 0px 10px;
+  
   
 }
 
 nav > ul li {
   display: inline-block;
   text-align: center;
-  width: 160px;
 }
 
 nav > ul li a {
@@ -90,20 +82,18 @@ nav > ul li a:active {
 }
 
 .cartIcon {
-  top: 100px;
-  text-align: right;
-  margin: 5px;
   font-size: 15px;
 } 
 
 .total {
+  font-size: 20px;
+  padding: 15px;
   text-align: right;
-  size: 20px;
-  padding: 10px;
 }
+
 
 .footer {
   background-color: lightgrey;
-  padding: 5px;
+  padding: 1px;
   margin-top: auto;
 }
