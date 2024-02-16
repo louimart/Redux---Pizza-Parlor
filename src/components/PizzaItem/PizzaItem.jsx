@@ -23,12 +23,13 @@ function PizzaItem({ pizzas }) {
       dispatch({
         type: "SET_CART_ITEM",
         payload: pizzas,
-      });
+      });  
     } else {
       dispatch({
         type: "SET_REMOVE_ITEM",
         payload: { id: pizzas.id },
       });
+      
     }
   };
 
@@ -41,6 +42,7 @@ function PizzaItem({ pizzas }) {
           padding: "10px",
           margin: "10px",
           boxSizing: "border-box",
+          backgroundColor: "lightgrey"
         }}
       >
         <Stack spacing={2} alignItems="center">
@@ -52,10 +54,13 @@ function PizzaItem({ pizzas }) {
             onClick={addPizzaToCart}
             className="cardButton"
             variant="contained"
+            color="error"
             fullWidth
             size="small"
             sx={{
               marginTop: "auto",
+              color: "white",
+              fontSize: "15px",
             }}
           >
             {isInCart() ? "REMOVE" : "ADD"}

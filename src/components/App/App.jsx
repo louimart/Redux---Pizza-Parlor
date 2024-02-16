@@ -81,7 +81,7 @@ function App() {
         console.log('ERROR DELETING PIZZA', err);
       });
   };
-
+    
   function calculateCartTotal(cart) {
     let total = 0;
     for (let item of cart) {
@@ -91,7 +91,8 @@ function App() {
     return total;
   }
 
-  let myCart = Number.parseFloat(calculateCartTotal(cart).toFixed(2));
+  let myCartTotal = Number.parseFloat(calculateCartTotal(cart).toFixed(2));
+  
 
   // console.log("total cost", myCart);
 
@@ -102,7 +103,7 @@ function App() {
           <h1 className="App-title">Prime Pizza</h1>
           <h4 className="cartIcon">
             <span className="total">
-              <ShoppingCartIcon /> TOTAL: $ {myCart}
+              <ShoppingCartIcon /> TOTAL: $ {myCartTotal}
               <Nav />
             </span>
           </h4>
@@ -117,7 +118,7 @@ function App() {
           <CustomerInfo />
         </Route>
         <Route exact path="/checkout">
-          <Checkout myCart={myCart} />
+          <Checkout myCartTotal={myCartTotal} />
         </Route>
         <Route exact path="/admin">
           <Orders refreshOrders={refreshOrders} />

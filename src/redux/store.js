@@ -9,7 +9,7 @@ const orders = (state = [], action) => {
   return state;
 };
 
-const customer = (state = [], action) => {
+const customer = (state = {}, action) => {
   if (action.type === 'SET_CUSTOMER_INFO') {
     return action.payload;
   }
@@ -29,7 +29,7 @@ const cart = (state = [], action) => {
   // TODO: Save Products added to the cart
   switch (action.type) {
     case 'SET_CART_ITEM':
-      return [...state, action.payload];
+      return [...state, { ...action.payload, quantity: 1 }];
     case 'SET_REMOVE_ITEM': {
       return state.filter((cartItem) => {
         return cartItem.id !== action.payload.id;

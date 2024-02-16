@@ -1,5 +1,5 @@
 .App-header {
-  background-color: #fb1010;
+  background-color: red;
   min-height: 110px;
   color: white;
   margin-top: 0px;
@@ -20,7 +20,7 @@
   grid-gap: 10px;
   gap: 10px;
   margin: 20px;
-  background-color: lightgray;
+  background-color: lightcoral;
 }
 .pizzaItem {
   
@@ -31,11 +31,11 @@
   border: 2px solid black;
   border-radius: 5px;
   background-color: lightgrey;
-  filter: drop-shadow(5px 5px 2px lightgray);
+  filter: drop-shadow(5px 5px 2px lightcoral);
 }
 
 nav {
-  background-color: lightgray;
+  background-color: lightcoral;
   color: black;
   
 }
@@ -93,7 +93,7 @@ nav > ul li a:active {
 
 
 .footer {
-  background-color: lightgrey;
+  background-color: lightcoral;
   padding: 1px;
   margin-top: auto;
 }

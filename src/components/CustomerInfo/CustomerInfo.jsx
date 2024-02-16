@@ -89,7 +89,7 @@ function CustomerInfo() {
               setRadioValue(event.target.value);
             }}
           />
-          <label for="pickup">Delivery</label>
+          <label for="delivery">Delivery</label>
           <br />
         </div>
         <div className="nextButton">
