@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import React from "react";
-import { fetchPizza } from "../../pizzaApi/pizza.api";
-import axios from "axios";
-import "./App.css";
-import { HashRouter as Router, Route } from "react-router-dom";
-import CustomerInfo from "../CustomerInfo/CustomerInfo";
-import { deletePizza } from "../../pizzaApi/pizza.api";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import React from 'react';
+import { fetchPizza } from '../../pizzaApi/pizza.api';
+import axios from 'axios';
+import './App.css';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
+import { deletePizza } from '../../pizzaApi/pizza.api';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
-import PizzaList from "../PizzaList/PizzaList";
-import Checkout from "../Checkout/Checkout";
-import Orders from "../Orders/Orders";
-import Nav from "../Nav/Nav";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import PizzaList from '../PizzaList/PizzaList';
+import Checkout from '../Checkout/Checkout';
+import Orders from '../Orders/Orders';
+import Nav from '../Nav/Nav';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
@@ -26,11 +26,11 @@ function App() {
     const taskPromise = fetchPizza();
     taskPromise
       .then((response) => {
-        console.log("SERVER DATA:", response);
+        console.log('SERVER DATA:', response);
         setPizzaList(response.data);
       })
       .catch((err) => {
-        console.error("ERROR:", err);
+        console.error('ERROR:', err);
         alert("oh no, there's a problem");
       });
   };
@@ -41,13 +41,13 @@ function App() {
 
   const refreshOrders = () => {
     axios
-      .get("/api/order")
+      .get('/api/order')
       .then((response) => {
         // send data to data to redux
-        dispatch({ type: "SET_ORDER_LIST", payload: response.data });
+        dispatch({ type: 'SET_ORDER_LIST', payload: response.data });
       })
       .catch((error) => {
-        console.log("ERROR:", error);
+        console.log('ERROR:', error);
       });
   };
 
@@ -57,13 +57,13 @@ function App() {
 
   const refreshPizzas = () => {
     axios
-      .get("/api/pizza")
+      .get('/api/pizza')
       .then((response) => {
         // send data to data to redux
-        dispatch({ type: "SET_PIZZA_LIST", payload: response.data });
+        dispatch({ type: 'SET_PIZZA_LIST', payload: response.data });
       })
       .catch((error) => {
-        console.log("ERROR:", error);
+        console.log('ERROR:', error);
       });
   };
 
@@ -72,13 +72,13 @@ function App() {
   }, []);
 
   const handleClickDelete = (id) => {
-    console.log("DELETE PIZZA", id);
+    console.log('DELETE PIZZA', id);
     deletePizza(id)
       .then((response) => {
         refreshPizza();
       })
       .catch((err) => {
-        console.log("ERROR DELETING PIZZA", err);
+        console.log('ERROR DELETING PIZZA', err);
       });
   };
 
@@ -93,7 +93,7 @@ function App() {
 
   let myCart = Number.parseFloat(calculateCartTotal(cart).toFixed(2));
 
-  console.log(myCart);
+  // console.log("total cost", myCart);
 
   return (
     <div className="App">
@@ -102,7 +102,7 @@ function App() {
           <h1 className="App-title">Prime Pizza</h1>
           <h4 className="cartIcon">
             <span className="total">
-            <ShoppingCartIcon />  TOTAL: $ {myCart} 
+              <ShoppingCartIcon /> TOTAL: $ {myCart}
               <Nav />
             </span>
           </h4>
@@ -122,9 +122,11 @@ function App() {
         <Route exact path="/admin">
           <Orders refreshOrders={refreshOrders} />
         </Route>
-      <footer className="footer">
-        <p><Link to="/admin">Admin</Link></p>
-      </footer>
+        <footer className="footer">
+          <p>
+            <Link to="/admin">Admin</Link>
+          </p>
+        </footer>
       </Router>
     </div>
   );

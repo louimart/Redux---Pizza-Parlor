@@ -1,14 +1,15 @@
-import * as React from "react";
-import { useSelector } from "react-redux";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Button } from "@mui/material";
+import * as React from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -21,17 +22,46 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
+  '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
   // hide last border
-  "&:last-child td, &:last-child th": {
+  '&:last-child td, &:last-child th': {
     border: 0,
   },
 }));
 
+////TESTING CUSTOMER INFO
+
 function Checkout({ myCart }) {
   const cart = useSelector((state) => state.cart);
+  const customer_name = useSelector((store) => store.orders.customer_name);
+  const street_address = useSelector((store) => store.orders.street_address);
+  const city = useSelector((store) => store.orders.city);
+  const zip = useSelector((store) => store.orders.zip);
+  const type = useSelector((store) => store.orders.type);
+  // console.log('customer_name', customer_name);
+  const customer = useSelector((state) => state.customer);
+  console.log('customer info to be sent via axios', customer);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // axios
+    //   .post('/', {
+    //     customer_name,
+    //     street_address,
+    //     city,
+    //     zip,
+    //     type,
+    //   })
+    //   .then((response) => {
+    //     alert('feedback submitted!');
+    //   })
+    //   .catch((error) => {
+    //     console.log('ERROR:', error);
+    //   });
+  };
 
   return (
     <>
@@ -69,7 +99,7 @@ function Checkout({ myCart }) {
       </TableContainer>
       <p className="nextButton">
         Total: ${myCart} <br />
-        <Button variant="contained" size="large">
+        <Button variant="contained" size="large" onClick={handleSubmit}>
           CHECKOUT
         </Button>
       </p>
