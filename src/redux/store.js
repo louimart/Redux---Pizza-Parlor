@@ -33,7 +33,10 @@ const cart = (state = [], action) => {
     case 'SET_REMOVE_ITEM': {
       return state.filter((cartItem) => {
         return cartItem.id !== action.payload.id;
-      });
+      });   
+    } 
+    case 'SET_EMPTY_CART': {
+      return state, action.payload
     }
     default:
       return state;

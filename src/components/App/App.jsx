@@ -111,7 +111,7 @@ function App() {
         <Route exact path="/">
           <PizzaList
             pizzaList={pizzaList}
-            refreshPizzaCallBack={refreshPizza}
+            refreshPizzas={refreshPizzas}
           />
         </Route>
         <Route exact path="/customerinfo">

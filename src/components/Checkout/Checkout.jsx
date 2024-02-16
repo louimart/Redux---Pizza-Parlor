@@ -1,6 +1,6 @@
 import * as React from "react";
 import { postOrder } from "../../pizzaApi/pizza.api";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,6 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -33,7 +34,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 ////TESTING CUSTOMER INFO
 
-function Checkout({ myCartTotal }) {
+function Checkout({ myCartTotal, refreshPizzas }) {
   const cart = useSelector((state) => state.cart);
   const customer = useSelector((state) => state.customer);
   const customer_name = useSelector((store) => store.customer.customer_name);
@@ -42,6 +43,8 @@ function Checkout({ myCartTotal }) {
   const zip = useSelector((store) => store.customer.zip);
   const type = useSelector((store) => store.customer.type);
   // console.log('customer_name', customer_name);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -56,7 +59,23 @@ function Checkout({ myCartTotal }) {
       pizzas: cart,
     })
       .then((response) => {
-        alert("Order completed!");
+        refreshPizzas;
+        dispatch({
+          type: "SET_CUSTOMER_INFO",
+          payload: {
+            customer_name: "" ,
+            street_address: "" ,
+            city: "" ,
+            zip: "" ,
+            type: "" ,
+            total: myCartTotal,
+          },
+        });
+        dispatch({
+          type: "SET_EMPTY_CART",
+          payload: []
+        });
+        history.push("/");
       })
       .catch((error) => {
         console.log("ERROR:", error);
