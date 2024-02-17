@@ -63,17 +63,17 @@ function Checkout({ myCartTotal, refreshPizzas }) {
         dispatch({
           type: "SET_CUSTOMER_INFO",
           payload: {
-            customer_name: "" ,
-            street_address: "" ,
-            city: "" ,
-            zip: "" ,
-            type: "" ,
+            customer_name: "",
+            street_address: "",
+            city: "",
+            zip: "",
+            type: "",
             total: myCartTotal,
           },
         });
         dispatch({
           type: "SET_EMPTY_CART",
-          payload: []
+          payload: [],
         });
         history.push("/");
       })
@@ -87,13 +87,13 @@ function Checkout({ myCartTotal, refreshPizzas }) {
       <div className="customerInfo">
         <h2>Step 3: Checkout</h2>
         {/* {customer.map((item) => ( */}
-        <div>
+        <h4 className="customerInfo">
           {customer.customer_name} <br />
           {customer.street_address} <br />
           {customer.city} <br />
           {customer.zip} <br />
-          {customer.type}
-        </div>
+          <div>{customer.type}</div>
+        </h4>
         {/* ))} */}
       </div>
       <TableContainer component={Paper}>

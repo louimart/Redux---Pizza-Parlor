@@ -13,6 +13,14 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.customerInfo div {
+  text-align: right;
+  position: relative;
+  bottom: 70px;
+  font-size: 20px;
+  text-transform: capitalize;
+
+}
 
 .pizzaList {
   display: grid;
